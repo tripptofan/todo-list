@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import TodoItem from './Components/TodoItem';
-import TodoCounter from './Components/TodoCounter';
+
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [todoInput, setTodoInput] = useState('');
-  const [activeTab, setActiveTab] = useState(null);
+
 
   const toggleCompleted = id => {
     let currentTodos = todos
@@ -33,7 +33,7 @@ function App() {
 
   <div id='formContainer'>
   <form id='addTodo' onSubmit={e => {e.preventDefault(); setTodos(oldState => [...oldState, {task: todoInput, completed: false, creationDate: new Date(), id: uuidv4() }]); setTodoInput('')}}>
-    <input type='text' onChange={e => setTodoInput(e.target.value)} value={todoInput} placeholder='Enter new item (50 char. max)' require maxLength='50' />
+    <input type='text' onChange={e => setTodoInput(e.target.value)} value={todoInput} placeholder='Enter new item (50 char. max)' required maxLength='50' />
     <button type='submit'>Submit</button>
   </form>
   
@@ -47,7 +47,7 @@ function App() {
 
 <footer>
   <p>Created by Jason Tripp</p>
-<a href=''>github</a>
+<a href='https://github.com/tripptofan/todo-list'>github</a>
 
 </footer>
 </div>
