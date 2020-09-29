@@ -1,38 +1,106 @@
-.App {
+#app {
+  width: 100%;
+}
+header {
   text-align: center;
+  min-height: 15vh;
+  max-height: 15vh;
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+header h1 {
+  font-size: max(2vw, 24px);
+  margin-bottom: 1vw;
+}
+#todoCounter {
+  display: none;
+}
+#formContainer {
+  height: 100%;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#addTodo {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  padding: 0 2vw;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+form input {
+  width: 100%;
+  font-size: max(0.5vw, 15px);
+  padding: 5px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form button {
+  font-size: max(0.5vw, 15px);
+  padding: 5px;
+}
+#todoContainer {
+  width: 100vw;
+  max-width: 1024px;
+  height: 74vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  overflow-y: scroll;
+}
+.todoItem {
+  padding: 2vw;
+  max-height: 13vh;
+  min-height: 13vh;
+  margin-bottom: 0.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#task {
+  font-size: max(1.5vw, 20px);
+  margin-bottom: 1vh;
+}
+#todoItemBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+#creationDate {
+  float: right;
+}
+#todoButtons button {
+  border: none;
+  font-size: max(0.5vw, 15px);
+  padding: 7px;
+  margin-right: 0.5vw;
+  background: rgb(120, 140, 140);
   color: white;
+  cursor: pointer;
 }
-
-.App-link {
-  color: #61dafb;
+#todoButtons button:hover {
+  background: rgb(100, 128, 128);
 }
+#itemCompleted {
+  background-color: rgba(144, 238, 144, 1);
+  transition: background-color 100ms;
+}
+#itemNotCompleted {
+  background-color: rgba(255, 182, 193, 1);
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  transition: background-color 100ms;
+}
+#itemCompleted:hover {
+  background-color: rgba(144, 238, 144, 0.9);
+}
+#itemNotCompleted:hover {
+  background-color: rgba(255, 182, 193, 0.9);
+}
+footer {
+  height: 10vh;
+  padding: 0 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
