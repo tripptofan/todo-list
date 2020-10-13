@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import TodoItem from './Components/TodoItem';
 
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const savedTodos = JSON.parse(localStorage.getItem('savedTodos'))
+  const [todos, setTodos] = useState(savedTodos || []);
   const [todoInput, setTodoInput] = useState('');
 
 
@@ -22,9 +23,12 @@ function App() {
   };
 
   const removeTodo = todo => {
-    setTodos(todos.filter(item => item.id !== todo))
+    setTodos(todos.filter(item => item.id !== todo));
   }
 
+useEffect(() => {
+  localStorage.setItem('savedTodos', JSON.stringify(todos))
+},[todos])
 
   return (
 <div id='app'>
@@ -36,7 +40,7 @@ function App() {
     <input type='text' onChange={e => setTodoInput(e.target.value)} value={todoInput} placeholder='Enter new item (50 char. max)' required maxLength='50' />
     <button type='submit'>Submit</button>
   </form>
-  
+  <button className='clearAll'  onClick={() =>setTodos([])}>Clear All</button>
 </div>
 </header>
 
