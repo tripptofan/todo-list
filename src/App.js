@@ -40,6 +40,7 @@ useEffect(() => {
     <input type='text' onChange={e => setTodoInput(e.target.value)} value={todoInput} placeholder='Enter new item (50 char. max)' required maxLength='50' />
     <button type='submit'>Submit</button>
   </form>
+  
   <button className='clearAll'  onClick={() =>setTodos([])}>Clear All</button>
 </div>
 </header>
